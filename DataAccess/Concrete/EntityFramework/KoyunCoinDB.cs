@@ -1,4 +1,5 @@
 ﻿
+using Core.Entities.Concretes;
 using Entity.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,7 +18,9 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<CarbonToKYC> CarbonToKYC { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Garbage> Garbages { get; set; }
-      
+        public DbSet<User> Users { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> userOperationClaims { get; set; }
 
     }
 }
