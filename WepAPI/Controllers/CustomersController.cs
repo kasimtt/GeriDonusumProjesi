@@ -1,5 +1,6 @@
 ﻿using Bussines.Abstract;
 using Entity.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,6 +22,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpGet("getall")]
+        [Authorize(Roles = "product.list")]
         public IActionResult GetAll()
         {
             Thread.Sleep(2000);

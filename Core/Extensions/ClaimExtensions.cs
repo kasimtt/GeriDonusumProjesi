@@ -27,8 +27,6 @@ namespace Core.Extensions
         public static void AddRoles(this ICollection<Claim> claims , string[] roles)
         {
              roles.ToList().ForEach(role => claims.Add(new Claim(ClaimTypes.Role, role)));
-
-
             //-->yukarıdaki kod ile aynı şeyi ifade eder
             //var CurrentRoles = roles.ToList();
             //foreach (var role in CurrentRoles)

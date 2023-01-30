@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Core.Utilities.Security.Jwt
 {
-    public class JwtHelper
+    public class JwtHelper : ITokenHelper
     {
         public IConfiguration Configuration { get; }
         private TokenOptions _tokenOptions;
@@ -61,7 +61,7 @@ namespace Core.Utilities.Security.Jwt
             var claims = new List<Claim>();
             claims.AddName($"{user.FirstName} {user.LastName}");
             claims.AddEmail(user.Email);
-            claims.AddNameIdentifier(user.UserId.ToString());
+            claims.AddNameIdentifier(user.Id.ToString());
             claims.AddRoles(operationClaims.Select(c => c.Name).ToArray());
             return claims;
 

@@ -34,6 +34,7 @@ namespace Bussines.Concrete
             return new SuccessResult(Messages.DeletedMessages);
         }
 
+       
         public IDataResult<List<Garbage>> GetAll()
         {
             var result = _garbageDal.GetAll();

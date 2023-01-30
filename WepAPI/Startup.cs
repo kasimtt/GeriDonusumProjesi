@@ -1,6 +1,8 @@
 
 using Bussines.Abstract;
 using Bussines.Concrete;
+using Core.Utilities.Security.Encryption;
+using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -35,10 +37,28 @@ namespace WepAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddCors();
+            services.AddCors(option=>
+            {
+                option.AddPolicy("AllowOrigin",
+                    builder => builder.WithOrigins("http://localhost:4200"));
+                
+            
+            });
 
-;
-
+;           var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidIssuer = tokenOptions.Issuer,
+                    ValidAudience = tokenOptions.Audience,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                 };
+            });
             
         }
 
@@ -50,6 +70,7 @@ namespace WepAPI
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+           
             app.UseHttpsRedirection();
 
             app.UseRouting();
