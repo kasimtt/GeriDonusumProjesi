@@ -1,4 +1,5 @@
 ﻿using Bussines.Abstract;
+using Bussines.BusinessAspect.Autofact;
 using Bussines.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -20,7 +21,8 @@ namespace Bussines.Concrete
             _garbageDal = garbageDal;
         }
 
-     
+
+        [SecuredOperation("admin,garbage.add")]
         public IResult Add(Garbage garbage)
         {
             _garbageDal.Add(garbage);

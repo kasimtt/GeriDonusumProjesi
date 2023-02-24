@@ -13,6 +13,5 @@ namespace Entity.Concrete
         public int UserId { get; set; }
         public double Carbon { get; set; }
         public double KYC { get; set; }
-        public int SHAId { get; set; }
     }
 }

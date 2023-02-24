@@ -22,7 +22,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpGet("getall")]
-        [Authorize(Roles = "product.list")]
+      //  [Authorize(Roles = "product.list")]
         public IActionResult GetAll()
         {
             Thread.Sleep(2000);

@@ -70,5 +70,16 @@ namespace WepAPI.Controllers
             return BadRequest(result);
 
         }
+
+        [HttpGet("add")]
+        public IActionResult Add(Garbage garbage) 
+        {
+            var result = _garbageService.Add(garbage);
+            if( result.Success) 
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }
