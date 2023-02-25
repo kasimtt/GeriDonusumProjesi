@@ -13,6 +13,7 @@ namespace Bussines.Abstract
         IResult Add(Garbage garbage);
         IResult Update(Garbage garbage);
         IDataResult<Garbage> GetByName(string garbageName);
+        IResult AddTransactionalTest(Garbage garbage);
 
     }
 }
