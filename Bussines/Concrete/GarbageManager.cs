@@ -1,6 +1,8 @@
 ﻿using Bussines.Abstract;
 using Bussines.BusinessAspect.Autofact;
 using Bussines.Constants;
+using Bussines.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -23,13 +25,14 @@ namespace Bussines.Concrete
 
 
         [SecuredOperation("admin,garbage.add")]
+        [ValidationAspect(typeof(GarbageValidator))]
         public IResult Add(Garbage garbage)
         {
             _garbageDal.Add(garbage);
             return new SuccessResult(Messages.AddedMessages);
         }
 
-   
+       
         public IResult Delete(Garbage garbage)
         {
             _garbageDal.Delete(garbage);
