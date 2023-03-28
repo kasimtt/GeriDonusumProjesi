@@ -5,7 +5,7 @@ Türkye'de imalat sanayi işyerleri, maden işletmeleri, termik santraller, orga
 *** 
 ## Proje Bilgileri
 * C#, Katmanlı mimari, Entity Framework gibi teknolojiler kullanarak BackEnd geliştirilmiştir.
-* Projede JWT(Jason Web Token), Autofac, Grpc Servis(Başlangıç Seviye), Mernis ie doğrulama ,İleri Seviye Result yapısı gibi özellikler de mevcuttur. 
+* Projede JWT(Json Web Token), Autofac, Grpc Servis(Başlangıç Seviye), Mernis ie doğrulama ,İleri Seviye Result yapısı gibi özellikler de mevcuttur. 
 * Kurumsal yazılım mimarilerine uygun olarak hazırlanmıştır.
 ***
 ## BackEnd için Kullanılan Dil ve Teknolojiler
